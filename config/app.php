@@ -145,6 +145,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		Maatwebsite\Excel\ExcelServiceProvider::class,
+		'Chumper\Zipper\ZipperServiceProvider'
 	],
 
 	/*
@@ -193,6 +195,8 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
+		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+		'Zipper' => 'Chumper\Zipper\Zipper'
 	],
 
 ];

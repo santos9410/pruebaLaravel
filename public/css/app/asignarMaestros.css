@@ -1,0 +1,49 @@
+.plegable{
+ max-height:0;
+ overflow:hidden;
+ -webkit-transition: max-height 200ms ease-out;
+ -moz-transition: max-height 200ms ease-out;
+ -o-transition: max-height 200ms ease-out;
+ transition: max-height 200ms ease-out;
+}
+.desplegado{
+ max-height:100%;
+ -webkit-transition: max-height 500ms ease-out;
+ -moz-transition: max-height 500ms ease-out;
+ -o-transition: max-height 500ms ease-out;
+ transition: max-height 500ms ease-out;
+}
+.verMas {
+font-size:small;
+}
+
+.datos {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.textoCarrera {
+margin-bottom: 30px;
+}
+.grupos {
+height:50px;
+/*background:#34d6b9;*/
+display:flex;
+align-items: center;
+justify-content:center;
+}
+
+.divideG {
+border-bottom: 2px solid #ccc;
+margin-bottom: 10px;
+margin-top: 5px;
+}
+
+#selectMat {
+width: 70%;
+margin: 0 auto;
+margin-top: 30px;
+}
+.alExito , .alError , .alInfo{
+  display: none;
+}

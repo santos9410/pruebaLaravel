@@ -1,17 +1,14 @@
-@extends('app')
+@if (Auth::check())
 
-@section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
+  @if(Auth::user()->role == "admin")
+   @include('homes.homeAdmin')
+  @else
+    @include('homes.homeMaestro')
+  @endif
 
-				<div class="panel-body">
-					You are logged in!
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-@endsection
+@else
+  <h3>Bienvenido Guest!!</h3>
+  <h4>No deberias estas aquí</h4>
+@endif
+
+{{-- @include('homes.homeAdmin') --}}
