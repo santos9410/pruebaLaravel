@@ -35,27 +35,20 @@ class Registrar implements RegistrarContract {
 		$nombre =  $data['nombre'];
 		$apellidos = $data['apellidos'];
 		$nombre_completo = $nombre . " " . $apellidos;
-		for ($i=0; $i < 1; $i++) {
 
-				$idMaestro = rand(1,10000);
-				$consulta = Maestros::where('idMaestro','=',$idMaestro)->get()->first();
-				if(count($consulta) == 0) {
 
-					$insert[] = ['idMaestro' => $idMaestro, 'nombre_Maestro' => $nombre_completo];
-
-			 		Maestros::insert($insert);
-
-				}
-				else {
-					$i = 0;
-				}
-		}
-
-		return User::create([
-	            'usuario' => $data['usuario'],	            
+		$user = User::create([
+	            'usuario' => $data['usuario'],
 	            'role' => $data['role'],
 	            'password' => bcrypt($data['password']),
 	        ]);
+
+		$idMaestro = $user->id;
+		$insert[] = ['idMaestro' => $idMaestro, 'nombre_Maestro' => $nombre_completo];
+		Maestros::insert($insert);
+
+
+		return $user;
 
 	}
 

@@ -10,6 +10,23 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Route::get('/generar', function (Excel $excel) {
+//   // use Excel;
+//   $path = 'app/Http/users.csv';
+//   // echo $path;
+//   $data = $excel::load($path, function($reader) {})->get();
+//
+//   if(!empty($data) && $data->count()) {
+//
+//     foreach ($data->toArray() as $key => $value) {
+//       // echo json_encode($value['password']);
+//       // echo "  => ";
+//       echo bcrypt($value['password']);
+//       echo "<br>";
+//     }
+//   }
+//
+// });
 
 Route::group(['middleware' => ['auth']], function() {
 

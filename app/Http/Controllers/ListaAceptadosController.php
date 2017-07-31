@@ -10,6 +10,7 @@ use App\Materias;
 use App\Config;
 use App\D_Config;
 use App\Carreras;
+use Materia_Grupo;
 use Excel;
 use Zipper;
 
@@ -205,7 +206,16 @@ class ListaAceptadosController extends Controller
 
           }
           else {
-            return ['accion'=>3,'message'=>'faltan calificaciones por registrar!!'];
+            $materias_encontradas = "";
+            for ($z = 0; $z < count($data3); $z++) {
+              $idGrupoM = $data3[$z]['id_MateriaG'];
+              $dataMaterias = Materia_Grupo::where('id_MateriaG','=',$idGrupoM)->select('idMateria')->get()->first();
+              if(count($dataMaterias) > 0) {
+                $materias_encontradas .= $materias['nombre_Mat'] . ", " ;
+              }
+
+            }
+            return ['accion'=>3,'message'=>'faltan calificaciones, solo están registradan las de  [ '. $materias_encontradas .' ] '];
           }
 
           $ceneval = (($ceneval - 600) * 100) / 700;
